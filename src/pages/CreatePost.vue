@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "CreatePost",
 
@@ -52,7 +53,16 @@ export default {
   methods: {
     createPost(e) {
       e.preventDefault();
+      axios.post(`http://localhost:5000/rooms`, {
+        id: new Date(),
+        title: this.title,
+        content: this.content,
+        type: this.radios,
+        img: "",
+        link: "",
+      });
       console.log(this.title, this.content, this.radios);
+      this.$router.push("/");
     },
   },
 };
