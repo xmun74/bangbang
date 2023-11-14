@@ -1,14 +1,12 @@
 <template>
   <v-container>
-    <v-row id="app">
+    <v-row>
       <v-toolbar>
         <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
-
         <v-toolbar-title to="/"
-          ><router-link to="/"> 방방 </router-link></v-toolbar-title
+          ><router-link to="/">방방</router-link></v-toolbar-title
         >
       </v-toolbar>
-      <!-- <router-link to="/"> 방방 </router-link> -->
       <router-view />
     </v-row>
   </v-container>

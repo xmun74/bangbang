@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <!-- <div id="app"> -->
     <Header />
-    <!-- </div> -->
   </v-app>
 </template>
 

@@ -3,6 +3,7 @@ import Vue from "vue";
 import Home from "@/pages/Home";
 import RoomDetail from "@/pages/RoomDetail";
 import CreatePost from "@/pages/CreatePost";
+import ErrorPage from "@/pages/ErrorPage";
 
 Vue.use(VueRouter);
 
@@ -18,6 +19,10 @@ const routes = [
   {
     path: "/post/:id",
     component: RoomDetail,
+  },
+  {
+    path: "*",
+    component: ErrorPage,
   },
 ];
 
