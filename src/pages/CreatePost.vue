@@ -30,8 +30,7 @@
           <v-radio label="아파트" value="아파트"></v-radio>
         </v-radio-group>
       </v-col>
-      위치, 날짜
-      <v-col>제목: {{ title }} 내용: {{ content }} 유형: {{ radios }}</v-col>
+
       <div class="d-flex justify-end">
         <v-btn color="primary" type="submit">등록</v-btn>
       </div>
@@ -52,13 +51,14 @@ export default {
 
   methods: {
     createPost() {
-      axios.post(`http://localhost:5000/rooms`, {
+      axios.post(`http://localhost:5000/posts`, {
         id: String(new Date()),
         title: this.title,
         content: this.content,
         type: this.radios,
         img: "",
         link: "",
+        status: "진행중",
       });
       console.log(this.title, this.content, this.radios);
       this.$router.push("/");

@@ -3,6 +3,7 @@ import Vue from "vue";
 import Home from "@/pages/Home";
 import PostDetail from "@/pages/PostDetail";
 import CreatePost from "@/pages/CreatePost";
+import UpdatePost from "@/pages/UpdatePost";
 import ErrorPage from "@/pages/ErrorPage";
 
 Vue.use(VueRouter);
@@ -19,6 +20,10 @@ const routes = [
   {
     path: "/post/:id",
     component: PostDetail,
+  },
+  {
+    path: "/update/:id",
+    component: UpdatePost,
   },
   {
     path: "*",

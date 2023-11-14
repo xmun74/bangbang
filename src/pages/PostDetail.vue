@@ -5,12 +5,14 @@
         <StatusBtn :status="post.status" />
         <h2 class="ml-2">{{ post.title }}</h2>
       </div>
-      <v-btn>수정하기</v-btn>
+      <v-btn>
+        <router-link :to="`/update/${$route.params.id}`">수정하기</router-link>
+      </v-btn>
     </div>
     <v-col>
       <label>내용</label>
-      {{ post.content }}</v-col
-    >
+      {{ post.content }}
+    </v-col>
     <v-col>매물 유형 {{ post.type }}</v-col>
   </v-container>
 </template>

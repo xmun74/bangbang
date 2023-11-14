@@ -17,7 +17,7 @@ export default {
 
   methods: {
     getRooms() {
-      axios.get(`http://localhost:5000/rooms`).then((res) => {
+      axios.get(`http://localhost:5000/posts`).then((res) => {
         this.rooms = res.data;
       });
     },
