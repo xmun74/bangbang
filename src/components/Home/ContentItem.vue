@@ -1,8 +1,12 @@
 <template>
-  <ul class="">
-    <div v-for="(item, idx) in items" :key="idx + item.title">
+  <v-row>
+    <v-col
+      v-for="(item, idx) in items"
+      :key="idx + item.title"
+      :style="{ minWidth: '300px' }"
+    >
       <router-link :to="'/post/' + item.id">
-        <v-card width="200px">
+        <v-card>
           <!-- 이미지 -->
           <v-img aspect-ritio="2"></v-img>
           <!-- 텍스트 -->
@@ -16,8 +20,8 @@
           </v-card-actions>
         </v-card>
       </router-link>
-    </div>
-  </ul>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

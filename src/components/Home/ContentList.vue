@@ -1,7 +1,7 @@
 <template>
-  <div class="d-flex flex-column" width="100%">
+  <v-row class="mb-6" no-gutters>
     <ContentItem :items="rooms" />
-  </div>
+  </v-row>
 </template>
 
 <script>
@@ -20,7 +20,6 @@ export default {
   methods: {
     getRooms() {
       axios.get(`http://localhost:5000/rooms`).then((res) => {
-        // console.log(res.data);
         this.rooms = res.data;
       });
     },
