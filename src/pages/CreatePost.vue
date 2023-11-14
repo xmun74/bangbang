@@ -52,9 +52,8 @@ export default {
 
   methods: {
     createPost() {
-      // e.preventDefault();
       axios.post(`http://localhost:5000/rooms`, {
-        id: new Date(),
+        id: String(new Date()),
         title: this.title,
         content: this.content,
         type: this.radios,

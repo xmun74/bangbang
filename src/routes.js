@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
 import Home from "@/pages/Home";
-import RoomDetail from "@/pages/RoomDetail";
+import PostDetail from "@/pages/PostDetail";
 import CreatePost from "@/pages/CreatePost";
 import ErrorPage from "@/pages/ErrorPage";
 
@@ -18,7 +18,7 @@ const routes = [
   },
   {
     path: "/post/:id",
-    component: RoomDetail,
+    component: PostDetail,
   },
   {
     path: "*",

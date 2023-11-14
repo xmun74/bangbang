@@ -15,8 +15,8 @@
             {{ item.content }}
           </v-card-text>
           <!-- 상태버튼 -->
-          <v-card-actions>
-            <v-btn>마감</v-btn>
+          <v-card-actions class="d-flex justify-end">
+            <StatusBtn :status="item.status" />
           </v-card-actions>
         </v-card>
       </router-link>
@@ -25,8 +25,12 @@
 </template>
 
 <script>
+import StatusBtn from "@/components/Common/StatusBtn.vue";
 export default {
   name: "ContentItem",
+  components: {
+    StatusBtn,
+  },
   props: {
     items: { type: Array, default: () => [] },
   },

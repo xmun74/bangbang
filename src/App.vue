@@ -5,10 +5,9 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
+import Header from "@/components/Common/Header";
 export default {
   name: "App",
-
   components: {
     Header,
   },
@@ -20,6 +19,6 @@ export default {
 <style>
 a {
   text-decoration: none;
-  color: black;
+  color: rgb(19, 9, 9);
 }
 </style>

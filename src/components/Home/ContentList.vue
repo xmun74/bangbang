@@ -1,7 +1,5 @@
 <template>
-  <v-row class="mb-6" no-gutters>
-    <ContentItem :items="rooms" />
-  </v-row>
+  <ContentItem :items="rooms" />
 </template>
 
 <script>
