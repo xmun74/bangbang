@@ -1,10 +1,10 @@
 <template>
-  <ContentItem :items="rooms" />
+  <ContentItem :items="posts" />
 </template>
 
 <script>
-import axios from "axios";
 import ContentItem from "./ContentItem.vue";
+import { getPosts } from "@/api/posts";
 
 export default {
   name: "ContentList",
@@ -12,18 +12,15 @@ export default {
     ContentItem,
   },
   data: () => ({
-    rooms: [],
+    posts: [],
   }),
 
   methods: {
-    getRooms() {
-      axios.get(`http://localhost:5000/posts`).then((res) => {
-        this.rooms = res.data;
-      });
-    },
+    getPosts,
   },
-  created() {
-    this.getRooms();
+  async created() {
+    const res = await this.getPosts();
+    this.posts = res;
   },
 };
 </script>
