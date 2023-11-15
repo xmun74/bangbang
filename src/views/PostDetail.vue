@@ -45,6 +45,7 @@ export default {
   }),
 
   methods: {
+    /** 글 1개 조회, 글 삭제 API */
     getPostById,
     deletePostById,
 

@@ -16,6 +16,7 @@ export default {
   }),
 
   methods: {
+    /** 글 목록 조회 API */
     getPosts,
   },
   async created() {

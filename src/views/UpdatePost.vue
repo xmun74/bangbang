@@ -50,6 +50,7 @@ export default {
   }),
 
   methods: {
+    /** 글 1개 조회, 글 수정 API */
     getPostById,
     updatePostById,
 

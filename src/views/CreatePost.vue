@@ -56,6 +56,7 @@ export default {
   }),
 
   methods: {
+    /** 글 생성 API */
     createPost,
 
     /** 폼 제출 핸들러 */
