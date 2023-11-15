@@ -1,10 +1,10 @@
 import VueRouter from "vue-router";
 import Vue from "vue";
-import Home from "@/pages/Home";
-import PostDetail from "@/pages/PostDetail";
-import CreatePost from "@/pages/CreatePost";
-import UpdatePost from "@/pages/UpdatePost";
-import ErrorPage from "@/pages/ErrorPage";
+import Home from "@/views/Home";
+import PostDetail from "@/views/PostDetail";
+import CreatePost from "@/views/CreatePost";
+import UpdatePost from "@/views/UpdatePost";
+import ErrorPage from "@/views/ErrorPage";
 
 Vue.use(VueRouter);
 
