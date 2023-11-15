@@ -25,10 +25,12 @@
       <v-col>
         <label> 매물 유형 : {{ post.type || "null" }}</label>
         <v-radio-group v-model="post.type" mandatory>
-          <v-radio label="빌라/다세대" value="빌라/다세대" />
-          <v-radio label="단독 주택" value="단독주택" />
-          <v-radio label="원룸" value="원룸" />
-          <v-radio label="아파트" value="아파트" />
+          <v-radio
+            v-for="item in post_types"
+            :key="item"
+            :label="item"
+            :value="item"
+          />
         </v-radio-group>
       </v-col>
 
@@ -41,12 +43,14 @@
 
 <script>
 import { getPostById, updatePostById } from "@/api/posts";
+import POST_TYPES from "@/constants/post";
 
 export default {
   name: "UpdatePost",
   components: {},
   data: () => ({
     post: {},
+    post_types: POST_TYPES,
   }),
 
   methods: {
