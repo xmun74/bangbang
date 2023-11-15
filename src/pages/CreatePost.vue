@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h2 class="my-5">방 상세설명</h2>
-    <v-form @submit.prevent="createPost">
+    <v-form @submit.prevent="onFormSubmit">
       <v-col
         >제목
         <v-text-field
@@ -9,7 +9,7 @@
           hide-details="auto"
           required
           :counter="50"
-          v-model="title"
+          v-model="post.title"
         />
       </v-col>
       <v-col>
@@ -18,12 +18,12 @@
           label="내용을 입력해주세요."
           required
           :counter="100"
-          v-model="content"
+          v-model="post.content"
         />
       </v-col>
       <v-col>
-        <label> 매물 유형 : {{ radios || "null" }}</label>
-        <v-radio-group v-model="radios" mandatory>
+        <label> 매물 유형 : {{ post.type || "null" }}</label>
+        <v-radio-group v-model="post.type" mandatory>
           <v-radio label="빌라/다세대" value="빌라/다세대"></v-radio>
           <v-radio label="단독 주택" value="단독주택"></v-radio>
           <v-radio label="원룸" value="원룸"></v-radio>
@@ -39,28 +39,29 @@
 </template>
 
 <script>
-import axios from "axios";
+import { createPost } from "@/api/posts";
+
 export default {
   name: "CreatePost",
 
   data: () => ({
-    title: "",
-    content: "",
-    radios: null,
+    post: {
+      title: "",
+      content: "",
+      type: null,
+      img: "",
+      link: "",
+      status: "진행중",
+    },
   }),
 
   methods: {
-    createPost() {
-      axios.post(`http://localhost:5000/posts`, {
-        id: String(new Date()),
-        title: this.title,
-        content: this.content,
-        type: this.radios,
-        img: "",
-        link: "",
-        status: "진행중",
-      });
-      console.log(this.title, this.content, this.radios);
+    createPost,
+
+    /** 폼 제출 핸들러 */
+    async onFormSubmit() {
+      const res = await createPost(this.post);
+      console.log("등록", res);
       this.$router.push("/");
     },
   },

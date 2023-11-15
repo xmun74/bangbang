@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h2 class="my-5">글 수정</h2>
-    <v-form @submit="updatePost">
+    <v-form @submit.prevent="onFormSubmit">
       <v-col
         >제목
         <v-text-field
@@ -17,14 +17,14 @@
       </v-col>
       <v-col>
         진행상태
-        <v-radio-group v-model="post.type" mandatory>
+        <v-radio-group v-model="post.status" mandatory>
           <v-radio label="진행중" value="진행중" />
           <v-radio label="마감" value="마감" />
         </v-radio-group>
       </v-col>
       <v-col>
-        <label> 매물 유형 : {{ radios || "null" }}</label>
-        <v-radio-group v-model="radios" mandatory>
+        <label> 매물 유형 : {{ post.type || "null" }}</label>
+        <v-radio-group v-model="post.type" mandatory>
           <v-radio label="빌라/다세대" value="빌라/다세대" />
           <v-radio label="단독 주택" value="단독주택" />
           <v-radio label="원룸" value="원룸" />
@@ -40,42 +40,30 @@
 </template>
 
 <script>
-import axios from "axios";
+import { getPostById, updatePostById } from "@/api/posts";
 
 export default {
   name: "UpdatePost",
   components: {},
   data: () => ({
     post: {},
-    radios: null,
   }),
 
   methods: {
-    getPost() {
-      axios
-        .get(`http://localhost:5000/posts/${this.$route.params.id}`)
-        .then((res) => {
-          this.post = res.data;
-          this.radios = res.data.type;
-        });
-    },
-    updatePost() {
-      axios.put(`http://localhost:5000/posts/${this.$route.params.id}`, {
-        id: this.post.id,
-        title: this.post.title,
-        content: this.post.content,
-        type: this.radios,
-        img: this.post.img,
-        link: this.post.link,
-        status: this.post.type,
-      });
+    getPostById,
+    updatePostById,
 
+    /** 폼 제출 핸들러 */
+    async onFormSubmit() {
+      const res = await updatePostById(this.$route.params.id, this.post);
+      console.log("수정", res);
       this.$router.push(`/post/${this.$route.params.id}`);
     },
   },
 
-  created() {
-    this.getPost();
+  async created() {
+    const res = await this.getPostById(this.$route.params.id);
+    this.post = res;
   },
 };
 </script>

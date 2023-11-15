@@ -1,11 +1,12 @@
 <template>
-  <div class="modal" v-if="isOpenModal">
-    <div class="backdrop"></div>
+  <div class="modal" v-if="isOpenModal == true">
+    <div class="backdrop" @click="setIsOpenModal"></div>
     <div class="modal-content">
+      <!-- 추후 변경 사항 - Content는 props로 전달받기 -->
       <h4>해당 글을 삭제하시겠습니까?</h4>
       <div>
-        <v-btn>삭제</v-btn>
-        <v-btn @click="isModalOpen = false">취소</v-btn>
+        <v-btn @click="onDeleteBtnClick">삭제</v-btn>
+        <v-btn @click="setIsOpenModal">취소</v-btn>
       </div>
     </div>
   </div>
@@ -16,12 +17,13 @@ export default {
   name: "Modal",
   props: {
     isOpenModal: { type: Boolean, default: false },
+    onDeleteBtnClick: { type: Function },
   },
-  data: () => ({
-    isModalOpen: false,
-  }),
-  created() {
-    this.isModalOpen = this.isOpenModal;
+  methods: {
+    /** 모달 상태 emit */
+    setIsOpenModal() {
+      this.$emit("setState");
+    },
   },
 };
 </script>
