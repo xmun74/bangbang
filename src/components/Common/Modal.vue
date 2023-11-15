@@ -1,11 +1,13 @@
 <template>
   <div class="modal" v-if="isOpenModal == true">
-    <div class="backdrop" @click="setIsOpenModal"></div>
+    <div class="modal-backdrop" @click="setIsOpenModal"></div>
     <div class="modal-content">
       <!-- 추후 변경 사항 - Content는 props로 전달받기 -->
-      <h4>해당 글을 삭제하시겠습니까?</h4>
+      <h4 class="flex-grow-1 d-flex align-center">
+        해당 글을 삭제하시겠습니까?
+      </h4>
       <div>
-        <v-btn @click="onDeleteBtnClick">삭제</v-btn>
+        <v-btn @click="onDeleteBtnClick" class="mr-2">삭제</v-btn>
         <v-btn @click="setIsOpenModal">취소</v-btn>
       </div>
     </div>
@@ -28,7 +30,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .modal {
   z-index: 11;
   display: flex;
@@ -40,7 +42,7 @@ export default {
   width: 100%;
   height: 100%;
 }
-.backdrop {
+.modal-backdrop {
   overflow: hidden;
   position: absolute;
   width: 100%;
@@ -55,8 +57,9 @@ export default {
   width: 100%;
   height: 100%;
   min-width: 700px;
-  min-height: 100px;
+  min-height: 200px;
   background: white;
+  padding: 15px;
   @media (min-width: 768px) {
     width: auto;
     height: auto;
