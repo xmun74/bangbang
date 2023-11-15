@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <main>
     <div class="d-flex justify-space-between my-5">
       <h2>방 목록</h2>
       <router-link to="/createPost">
@@ -9,7 +9,7 @@
 
     <ContentList />
     <!-- <router-view /> -->
-  </v-container>
+  </main>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <main>
     <h2 class="my-5">글 수정</h2>
     <v-form @submit.prevent="onFormSubmit">
       <v-col
@@ -36,7 +36,7 @@
         <v-btn color="primary" type="submit">수정</v-btn>
       </div>
     </v-form>
-  </v-container>
+  </main>
 </template>
 
 <script>

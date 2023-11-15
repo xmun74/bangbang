@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <main>
     <!-- 모달 -->
     <Modal
       @setState="setState"
@@ -25,7 +25,7 @@
       {{ post.content }}
     </v-col>
     <v-col>매물 유형 {{ post.type }}</v-col>
-  </v-container>
+  </main>
 </template>
 
 <script>

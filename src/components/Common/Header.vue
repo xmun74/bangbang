@@ -1,14 +1,9 @@
 <template>
   <v-container>
-    <v-row>
-      <v-toolbar>
-        <!-- <v-app-bar-nav-icon></v-app-bar-nav-icon> -->
-        <v-toolbar-title to="/"
-          ><router-link to="/">방방</router-link></v-toolbar-title
-        >
-      </v-toolbar>
-      <router-view />
-    </v-row>
+    <header class="mb-10">
+      <router-link to="/" class="header-title">방방</router-link>
+    </header>
+    <router-view />
   </v-container>
 </template>
 
@@ -19,3 +14,10 @@ export default {
   data: () => ({}),
 };
 </script>
+
+<style scoped>
+.header-title {
+  font-weight: 600;
+  font-size: 36px;
+}
+</style>

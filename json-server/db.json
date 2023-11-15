@@ -2,9 +2,9 @@
   "posts": [
     {
       "id": 2,
-      "title": "강남1",
-      "content": "강남 원룸방입니다1",
-      "type": "아파트",
+      "title": "강남1d",
+      "content": "강남 원룸방입니다1d",
+      "type": "단독주택",
       "img": "",
       "status": "마감"
     },
