@@ -1,18 +1,17 @@
 <template>
   <v-row>
-    <v-col
-      v-for="(item, idx) in items"
-      :key="idx + item.title"
-      :style="{ minWidth: '300px' }"
-    >
+    <v-col v-for="(item, idx) in items" :key="idx + item.title">
       <router-link :to="'/post/' + item.id">
-        <v-card>
-          <!-- 이미지 -->
-          <v-img aspect-ritio="2"></v-img>
+        <v-card class="card">
           <!-- 텍스트 -->
-          <v-card-title>{{ item.title }}</v-card-title>
+          <v-card-title class="d-flex flex-col font-weight-bold">
+            {{ item.title }}</v-card-title
+          >
           <v-card-text>
-            {{ item.content }}
+            {{ item.content }} -
+            <span class="text-caption ont-weight-thin">
+              {{ item.type }}
+            </span>
           </v-card-text>
           <!-- 상태버튼 -->
           <v-card-actions class="d-flex justify-end">
@@ -37,3 +36,9 @@ export default {
   data: () => ({}),
 };
 </script>
+<style scoped>
+.card {
+  border-radius: 15px;
+  min-width: 300px;
+}
+</style>

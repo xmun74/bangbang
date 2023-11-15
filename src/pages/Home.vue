@@ -8,7 +8,6 @@
     </div>
 
     <ContentList />
-    <!-- <router-view /> -->
   </main>
 </template>
 
