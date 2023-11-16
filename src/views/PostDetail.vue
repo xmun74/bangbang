@@ -1,11 +1,7 @@
 <template>
   <main>
     <!-- 모달 -->
-    <Modal
-      @setState="setState"
-      :isOpenModal="isOpenModal"
-      :onDeleteBtnClick="onDeleteBtnClick"
-    />
+    <Modal :onDeleteBtnClick="onDeleteBtnClick" />
 
     <div class="d-flex justify-space-between">
       <div class="d-flex">
@@ -17,7 +13,7 @@
           <v-btn class="mr-4" type="button">수정</v-btn>
         </router-link>
         <!-- 모달 토글버튼 -->
-        <v-btn @click="isOpenModal = true">삭제</v-btn>
+        <v-btn @click="onToggleModal">삭제</v-btn>
       </div>
     </div>
     <v-col>
@@ -41,7 +37,6 @@ export default {
   },
   data: () => ({
     post: {},
-    isOpenModal: false, // 모달 상태 추후 전역상태로 변경해야 함
   }),
 
   methods: {
@@ -49,14 +44,15 @@ export default {
     getPostById,
     deletePostById,
 
-    /** 모달 상태 변경 emit */
-    setState() {
-      this.isOpenModal = false;
-    },
     /** 삭제 버튼 핸들러 */
     onDeleteBtnClick() {
       deletePostById(this.$route.params.id);
       this.$router.push("/");
+    },
+
+    /** 모달 토글 핸들러 */
+    onToggleModal() {
+      this.$store.commit("toggleModal");
     },
   },
   async created() {

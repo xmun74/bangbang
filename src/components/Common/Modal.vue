@@ -1,6 +1,6 @@
 <template>
-  <div class="modal" v-if="isOpenModal == true">
-    <div class="modal-backdrop" @click="setIsOpenModal"></div>
+  <div class="modal" v-if="this.$store?.state.isOpenModal == true">
+    <div class="modal-backdrop" @click="onToggleModal"></div>
     <div class="modal-content">
       <!-- 추후 변경 사항 - Content는 props로 전달받기 -->
       <h4 class="flex-grow-1 d-flex align-center">
@@ -8,7 +8,7 @@
       </h4>
       <div>
         <v-btn @click="onDeleteBtnClick" class="mr-2">삭제</v-btn>
-        <v-btn @click="setIsOpenModal">취소</v-btn>
+        <v-btn @click="onToggleModal">취소</v-btn>
       </div>
     </div>
   </div>
@@ -18,13 +18,12 @@
 export default {
   name: "Modal",
   props: {
-    isOpenModal: { type: Boolean, default: false },
     onDeleteBtnClick: { type: Function },
   },
   methods: {
-    /** 모달 상태 emit */
-    setIsOpenModal() {
-      this.$emit("setState");
+    /** 모달 토글 핸들러 */
+    onToggleModal() {
+      this.$store.commit("toggleModal");
     },
   },
 };

@@ -6,7 +6,6 @@
         <v-btn>방 내놓기</v-btn>
       </router-link>
     </div>
-
     <ContentList />
   </main>
 </template>
@@ -21,6 +20,5 @@ export default {
   },
 
   data: () => ({}),
-  methods: {},
 };
 </script>
