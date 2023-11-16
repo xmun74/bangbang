@@ -1,14 +1,6 @@
 {
   "posts": [
     {
-      "id": 3,
-      "title": "판교3",
-      "content": "내용입니다",
-      "type": "단독주택",
-      "img": "",
-      "status": "진행중"
-    },
-    {
       "id": 6,
       "title": "판교6",
       "content": "내용입니다",

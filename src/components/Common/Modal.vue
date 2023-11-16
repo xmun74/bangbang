@@ -2,14 +2,7 @@
   <div class="modal" v-if="this.$store?.state.isOpenModal == true">
     <div class="modal-backdrop" @click="onToggleModal"></div>
     <div class="modal-content">
-      <!-- 추후 변경 사항 - Content는 props로 전달받기 -->
-      <h4 class="flex-grow-1 d-flex align-center">
-        해당 글을 삭제하시겠습니까?
-      </h4>
-      <div>
-        <v-btn @click="onDeleteBtnClick" class="mr-2">삭제</v-btn>
-        <v-btn @click="onToggleModal">취소</v-btn>
-      </div>
+      <slot name="modal-content"></slot>
     </div>
   </div>
 </template>

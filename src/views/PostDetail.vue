@@ -1,7 +1,16 @@
 <template>
   <main>
-    <!-- 모달 -->
-    <Modal :onDeleteBtnClick="onDeleteBtnClick" />
+    <!-- 글 삭제 모달 -->
+    <Modal :onDeleteBtnClick="onDeleteBtnClick">
+      <h3 slot="modal-content" class="d-flex justify-start">글 삭제</h3>
+      <h4 slot="modal-content" class="flex-grow-1 d-flex align-center">
+        해당 글을 삭제하시겠습니까?
+      </h4>
+      <div slot="modal-content">
+        <v-btn @click="onDeleteBtnClick" class="mr-2">삭제</v-btn>
+        <v-btn @click="onToggleModal">취소</v-btn>
+      </div>
+    </Modal>
 
     <div class="d-flex justify-space-between">
       <div class="d-flex">
