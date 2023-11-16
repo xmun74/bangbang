@@ -21,6 +21,7 @@ export default {
   color: white;
   border-radius: 15px;
   min-width: 70px;
+  height: 36px;
   text-align: center;
   font-weight: 500;
   font-size: 12px;

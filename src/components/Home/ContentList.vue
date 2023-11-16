@@ -1,5 +1,7 @@
 <template>
-  <ContentItem :items="posts" />
+  <v-row>
+    <ContentItem v-for="item in posts" :item="item" :key="item?.id" />
+  </v-row>
 </template>
 
 <script>

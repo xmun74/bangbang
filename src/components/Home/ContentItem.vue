@@ -1,26 +1,20 @@
 <template>
-  <v-row>
-    <v-col v-for="(item, idx) in items" :key="idx + item.title">
-      <router-link :to="'/post/' + item.id">
-        <v-card class="card">
-          <!-- 텍스트 -->
-          <v-card-title class="d-flex flex-col font-weight-bold">
-            {{ item.title }}</v-card-title
-          >
-          <v-card-text>
-            {{ item.content }} -
-            <span class="text-caption ont-weight-thin">
-              {{ item.type }}
-            </span>
-          </v-card-text>
-          <!-- 상태버튼 -->
-          <v-card-actions class="d-flex justify-end">
-            <StatusBtn :status="item.status" />
-          </v-card-actions>
-        </v-card>
-      </router-link>
-    </v-col>
-  </v-row>
+  <v-col>
+    <router-link :to="'/post/' + item?.id">
+      <v-card class="card pa-4">
+        <span class="text-caption ont-weight-thin">
+          {{ item?.type }}
+        </span>
+        <h3 class="py-4">
+          {{ item?.title }}
+        </h3>
+        <div class="pb-4">{{ item?.content }}</div>
+        <div class="d-flex justify-end">
+          <StatusBtn :status="item?.status" />
+        </div>
+      </v-card>
+    </router-link>
+  </v-col>
 </template>
 
 <script>
@@ -31,7 +25,7 @@ export default {
     StatusBtn,
   },
   props: {
-    items: { type: Array, default: () => [] },
+    item: { type: Object, default: () => {} },
   },
   data: () => ({}),
 };
@@ -40,5 +34,6 @@ export default {
 .card {
   border-radius: 15px;
   min-width: 300px;
+  height: 190px;
 }
 </style>
