@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-if="this.$store?.state.isOpenModal == true">
+  <div class="modal" v-if="$store?.state.isOpenModal == true">
     <div class="modal-backdrop" @click="onToggleModal"></div>
     <div class="modal-content">
       <slot name="modal-content"></slot>

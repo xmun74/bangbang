@@ -6,6 +6,8 @@
 
 <script>
 import Header from "@/components/Common/Header";
+import "@/styles/reset.css";
+
 export default {
   name: "App",
   components: {
