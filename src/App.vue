@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <Header />
+    <Header></Header>
   </v-app>
 </template>
 
@@ -17,8 +17,16 @@ export default {
 </script>
 
 <style>
-a {
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100;200;300;400;500;600;800;900&display=swap");
+
+html,
+body,
+#app {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.v-application a {
   text-decoration: none;
-  color: rgb(19, 9, 9);
+  color: inherit;
 }
 </style>
