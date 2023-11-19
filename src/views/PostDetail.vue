@@ -65,7 +65,7 @@ export default {
     },
   },
   async created() {
-    const res = await this.getPostById(this.$route.params.id);
+    const res = await getPostById(this.$route.params.id);
     this.post = res;
   },
 };

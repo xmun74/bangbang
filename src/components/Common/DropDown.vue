@@ -44,7 +44,7 @@ export default {
   top: 40px;
   right: 0;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   background-color: white;
   border-radius: 5px;
   border: 1px solid rgb(179, 178, 178);
